@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunday Management System</title>
+    <!-- style link -->
+    <link th:href="@{~/css/styles.css}"  rel="stylesheet">
+    <!-- fontawesome link -->
+
+</head>
+<body>
+<!-- header created -->
+<header class="header">
+    <!-- for insertion of logo -->
+    <div class="logo">
+        <img th:src="@{~/images/logo.png}" alt="">
+    </div>
+    <!-- nav bar  -->
+    <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Menu</a>
+        <a href="#">Contact</a>
+    </nav>
+    <!-- icons in navbar -->
+    <div class="icons">
+        <!-- <div id="search-bar" class="fas fa-search"></div> -->
+<!--        <a class="Search-btn" href="#">Search</a>-->
+        <!-- <div id="profile-bar" class="fas fa-user"></div> -->
+        <a class="Login-btn" th:href="@{~/user/login}" >Login</a>
+
+    </div>
+</header>
+
+
+
+<!-- for displaying main page  -->
+<div class="homee" th:style="'background:url('+ @{~/images/2.jpg} +')'">
+    <div class="main-homee">
+        <div class="homee-inner-content">
+            <div class="homee-image">
+                <!-- pic inserted -->
+                <img th:src="@{~/images/sun.png}" alt="" >
+            </div>
+
+            <!-- creating css for this  -->
+            <div class="homee-inner-content">
+                <div class="homee-text-content">
+                    <h1>Sunday Management System</h1>
+                    <p>Sunday Management is here to make you feel like sunday everyday while working </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div id="about" class="about">
+    <div class="main-about">
+        <div class="about-content">
+            <div class="about-inner-content">
+                <img th:src="@{~/images/womenonlaptop.jpg}" alt="">
+            </div>
+        </div>
+
+        <div class="about-content">
+            <div class="about-inner-content">
+                <div class="about-text-content">
+                    <h1>About us</h1>
+                    <p> Our system is all about completing your tasks feeling like Sunday and have fun.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="quality">
+    <div class="main-quality">
+        <div class="main-inner-quality">
+            <div class="quality-content">
+                <h1>Our abc quality</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A dolorum dicta cum laudantium quide</p>
+            </div>
+        </div>
+
+        <div class="main-inner-quality">
+            <div class="quality-content qulity-image">
+                <img th:src="@{~/images/employeeMan.jpg}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="gallery">
+    <div class="main-gallery">
+        <div class="inner-gallery">
+            <div class="gallery-image">
+                <img th:src="@{~/images/coolDoggo.png}" alt="">
+            </div>
+        </div>
+
+        <div class="inner-gallery">
+            <div class="gallery-image">
+                <img th:src="@{~/images/coolDoggo.png}" alt="">
+            </div>
+        </div>
+
+        <div class="inner-gallery">
+            <div class="gallery-image">
+                <img th:src="@{~/images/coolDoggo.png}" alt="">
+            </div>
+        </div>
+
+
+        <div class="inner-gallery">
+            <div class="gallery-image">
+                <img th:src="@{~/images/coolDoggo.png}" alt="">
+            </div>
+        </div>
+
+
+        <div class="inner-gallery">
+            <div class="gallery-image">
+                <img th:src="@{~/images/coolDoggo.png}" alt="">
+            </div>
+        </div>
+
+        <div class="inner-gallery">
+            <div class="gallery-image">
+                <img th:src="@{~/images/coolDoggo.png}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="enjoy-our-food"  th:style="'background:url('+ @{~/images/2.jpg} +')'">
+    <div class="food-main-content">
+        <h1>enjoy our food</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero suscipit perspiciatis vel quia, quae magni, beatae laboriosam nisi eligendi alias obcaecati dignissimos sit tempora ab hic voluptate quidem distinctio animi?</p>
+    </div>
+</div>
+<script th:src="@{~js/main.js}"></script>
+
+</body>
+</html>

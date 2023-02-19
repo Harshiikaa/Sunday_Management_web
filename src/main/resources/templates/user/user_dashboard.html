@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="wid
+th=device-width, initial-scale=1.0">
+
+    <title>User Dashboard</title>
+    <link rel="stylesheet" th:href="@{~/css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{~/css/dashbody.css}">
+    <!-- icon cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+<nav class="sidebar close">
+    <header>
+        <div class="image-text">
+                <span class="image">
+                    <img th:src="@{~/images/logo.png}">
+                </span>
+            <div class="text logo-text">
+                <span class="name">Mike Hudson</span>
+                <span class="profession">Employee</span>
+            </div>
+        </div>
+        <i class="bx bx-chevron-right toggle"></i>
+    </header>
+<!--    <div class="sidebar">-->
+        <div class="menu-bar">
+        <div class="menu">
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a th:href="@{~/user/dashboard}">
+                        <i class="bx bx-home-alt icon"></i>
+                        <span class="text nav-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a th:href="@{~/user/tasks}">
+                        <i class="bx bx-bar-chart-alt-2 icon"></i>
+                        <span class="text nav-text">Tasks</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a th:href="@{~/user/notices}">
+                        <i class="bx bx-bell icon"></i>
+                        <span class="text nav-text">Notices</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a th:href="@{~/user/leave}">
+                        <i class="bx bx-pie-chart-alt icon"></i>
+                        <span class="text nav-text">Leave</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a th:href="@{~/user/profile}">
+                        <i class="bx bx-heart icon"></i>
+                        <span class="text nav-text">Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bottom-content">
+            <li>
+                <a th:href="@{~/logout}">
+                    <i class="bx bx-log-out icon"></i>
+                    <span class="text nav-text">Logout</span>
+                </a>
+            </li>
+        </div>
+    </div>
+</nav>
+
+<section class="home">
+    <main>
+        <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</h1>
+        <!-- <div class="date">
+            <input type="date">
+        </div> -->
+        <div class="insights">
+            <div class="tasks">
+                <!--                    <span class="material-icons-sharp">-->
+                <!--                        task-->
+                <!--                        </span>-->
+                <div class="middle">
+                    <div class="left"></div>
+                    <h3>Total Tasks</h3>
+                    <h1> 15</h1>
+                </div>
+                <div class="progress">
+                    <!--                    <svg>-->
+                    <!--                        <circle cx="38" cy="38" r="36"></circle>-->
+                    <!--                    </svg>-->
+                    <!--                    <div class="number">-->
+                    <!--                        <p>-->
+                    <!--                            81%-->
+                    <!--                        </p>-->
+                    <!--                    </div>-->
+                </div>
+                <small class="text-muted">Last 24 hours</small>
+            </div>
+            <!-- -------- END OF TASKS--------- -->
+
+            <div class="salary">
+                <!--                    <span class="material-icons-sharp">-->
+                <!--                        event_available-->
+                <!--                        </span>-->
+                <div class="middle">
+                    <div class="left"></div>
+                    <h3>Total Leave</h3>
+                    <h1>15</h1>
+                </div>
+                <div class="progress">
+                    <!--                    <svg>-->
+                    <!--                        <circle cx="38" cy="38" r="36"></circle>-->
+                    <!--                    </svg>-->
+                    <!--                    <div class="number">-->
+                    <!--                        <p>-->
+                    <!--                            62%-->
+                    <!--                        </p>-->
+                    <!--                    </div>-->
+                </div>
+                <small class="text-muted">Last 24 hours</small>
+            </div>
+            <!-- -------- END OF Leave INSIGHT--------- -->
+
+
+            <div class="notice">
+                <!--                    <span class="material-icons-sharp">-->
+                <!--                        announcement-->
+                <!--                        </span>-->
+                <div class="middle">
+                    <div class="left">
+                        <!--                        <i class="bx bx-home-alt icon"></i>-->
+                    </div>
+
+                    <h3>Total Notice</h3>
+                    <h1>15</h1>
+                </div>
+                <div class="progress">
+                    <!--                    <svg>-->
+                    <!--                        <circle cx="38" cy="38" r="36"></circle>-->
+                    <!--                    </svg>-->
+                    <!--                    <div class="number">-->
+                    <!--                        <p>-->
+                    <!--                            44%-->
+                    <!--                        </p>-->
+                    <!--                    </div>-->
+                </div>
+                <small class="text-muted">Last 24 hours</small>
+            </div>
+            <!-- -------- END OF NOTICES INSIGHT --------- -->
+        </div>
+        <!-- -------- END OF INSIGHT --------- -->
+
+
+        <div class="recent-tasks">
+            <h2>
+                Recent Tasks
+            </h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Due Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Description</th>
+
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Visualize the given data</td>
+                    <td>12/12/2022</td>
+                    <td>11:59 pm</td>
+                    <td>Due</td>
+                    <td class="warning">Pending</td>
+                    <td class="primary">Description</td>
+                </tr>
+                <tr>
+                    <td>solve these issues </td>
+                    <td>12/12/2022</td>
+                    <td>11:59 pm</td>
+                    <td>Due</td>
+                    <td class="warning">Pending</td>
+                    <td class="primary">Description</td>
+                </tr>
+                <tr>
+                    <td>Visualize the given data</td>
+                    <td>12/12/2022</td>
+                    <td>11:59 pm</td>
+                    <td>Due</td>
+                    <td class="warning">Pending</td>
+                    <td class="primary">Description</td>
+                </tr>
+                <tr>
+                    <td>Visualize the given data</td>
+                    <td>12/12/2022</td>
+                    <td>11:59 pm</td>
+                    <td>Due</td>
+                    <td class="warning">Pending</td>
+                    <td class="primary">Description</td>
+                </tr>
+                </tbody>
+            </table>
+            <a th:href="@{~/user/tasks}">Show More</a>
+
+        </div>
+    </main>
+</section>
+
+
+<script>
+    const body = document.querySelector('body'),
+        sidebar = body.querySelector('nav'),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
+    toggle.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+    })
+    searchBtn.addEventListener("click", () => {
+        sidebar.classList.remove("close");
+    })
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>-->
+<!--    <link th:href="@{~/css/content.css}" rel="stylesheet">-->
+<!--    <link th:href="@{~/scss/styles.scss}" rel="stylesheet" />-->
+
+<!--    <script th:src="@{~/javascript/content.js}"></script>-->
+<!--    <title>User Dashboard</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--    <div class="Wrapper">-->
+<!--        <aside>-->
+<!--            <div class="top">-->
+<!--                <div class="logo">-->
+<!--                    <img th:src="@{~/images/logo.png}">-->
+<!--                </div>-->
+<!--                <div class="close" id="close_btn">-->
+<!--                        <span class="material-icons-sharp">-->
+<!--                            close-->
+<!--                        </span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--&lt;!&ndash;            <div class="menu-btn">&ndash;&gt;-->
+<!--&lt;!&ndash;                <i class="fas fa-bars"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="side-bar">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="close-btn">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <i class="fas fa-times"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--                <div class="sidebar">-->
+<!--                    <a th:href="@{~/user/dashboard}" class="active">-->
+<!--                                <span class="material-icons-sharp">-->
+<!--                                    dashboard-->
+<!--                                </span>-->
+<!--                        <h3>Dashboard</h3>-->
+<!--                    </a>-->
+<!--                    <a th:href="@{~/user/tasks}">-->
+<!--                                <span class="material-icons-sharp">-->
+<!--                                    task-->
+<!--                                </span>-->
+<!--                        <h3>Task</h3>-->
+<!--                    </a>-->
+<!--                    <a th:href="@{~/user/notices}">-->
+<!--                                <span class="material-icons-sharp">-->
+<!--                                    announcement-->
+<!--                                </span>-->
+<!--                        <h3>Notice</h3>-->
+<!--                    </a>-->
+<!--                    <a th:href="@{~/user/leave}">-->
+<!--                                <span class="material-icons-sharp">-->
+<!--                                    event_available-->
+<!--                                </span>-->
+<!--                        <h3>Leave</h3>-->
+<!--                    </a>-->
+<!--                    <a th:href="@{~/user/profile}">-->
+<!--                                <span class="material-icons-sharp">-->
+<!--                                    person-->
+<!--                                </span>-->
+<!--                        <h3>Profile</h3>-->
+<!--                    </a>-->
+<!--                    <a th:href="@{~/logout}">-->
+<!--                                <span class="material-icons-sharp">-->
+<!--                                    logout-->
+<!--                                </span>-->
+<!--                        <h3>Logout</h3>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--        </aside>-->
+
+<!--        &lt;!&ndash;        <div class="menu-btn">&ndash;&gt;-->
+<!--&lt;!&ndash;            <i class="fas fa-bars"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="side-bar">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="close-btn">&ndash;&gt;-->
+<!--&lt;!&ndash;                <i class="fas fa-times"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="menu">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="item"><a href="#"><i class="fas fa-desktop"></i>Dashboard</a></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="item"><a href="#"><i class="fas fa-th"></i>Forms</a></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="item"><a href="#"><i class="fas fa-info-circle"></i>About</a></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <section class="main">&ndash;&gt;-->
+<!--&lt;!&ndash;            &ndash;&gt;-->
+<!--&lt;!&ndash;        </section>&ndash;&gt;-->
+
+<!--&lt;!&ndash;-->
+<!--        &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;END OF ASIDE &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--        <main>-->
+<!--            <h1>Dashboard</h1>-->
+
+<!--            <div class="insights">-->
+<!--                <div class="tasks">-->
+<!--                    <span class="material-icons-sharp">-->
+<!--                        task-->
+<!--                        </span>-->
+<!--                    <div class="middle">-->
+<!--                        <div class="left"></div>-->
+<!--                        <h3>Total Tasks</h3>-->
+<!--                        <h1>15</h1>-->
+<!--                    </div>-->
+<!--                    <div class="progress">-->
+<!--                        <svg>-->
+<!--                                <circle cx="38" cy="38" r="36"></circle>-->
+<!--                            </svg>-->
+<!--                        <div class="number">-->
+<!--                            <p>-->
+<!--                                81%-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <small class="text-muted">Last 24 hours</small>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; END OF TASKS-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--                &lt;!&ndash;-->
+<!--                <div class="salary">-->
+<!--                    <span class="material-icons-sharp">-->
+<!--                        event_available-->
+<!--                        </span>-->
+<!--                    <div class="middle">-->
+<!--                        <div class="left"></div>-->
+<!--                        <h3>Total Leave</h3>-->
+<!--                        <h1>15</h1>-->
+<!--                    </div>-->
+<!--                    <div class="progress">-->
+<!--                        <svg>-->
+<!--                                <circle cx="38" cy="38" r="36"></circle>-->
+<!--                            </svg>-->
+<!--                        <div class="number">-->
+<!--                            <p>-->
+<!--                                62%-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <small class="text-muted">Last 24 hours</small>-->
+<!--                </div> &ndash;&gt;-->
+<!--                &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; END OF Leave INSIGHT-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+
+
+<!--                <div class="notice">-->
+<!--                    <span class="material-icons-sharp">-->
+<!--                        announcement-->
+<!--                        </span>-->
+<!--                    <div class="middle">-->
+<!--                        <div class="left"></div>-->
+<!--                        <h3>Total Notice</h3>-->
+<!--                        <h1>15</h1>-->
+<!--                    </div>-->
+<!--                    <div class="progress">-->
+<!--                        <svg>-->
+<!--                                <circle cx="38" cy="38" r="36"></circle>-->
+<!--                            </svg>-->
+<!--                        <div class="number">-->
+<!--                            <p>-->
+<!--                                44%-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <small class="text-muted">Last 24 hours</small>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; END OF NOTICES INSIGHT -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--            </div>-->
+<!--            &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; END OF INSIGHT -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+
+
+<!--            <div class="recent-tasks">-->
+<!--                <h2>-->
+<!--                    Recent Tasks-->
+<!--                </h2>-->
+<!--                <table>-->
+<!--                    <thead>-->
+<!--                        <tr>-->
+<!--                            <th>Task</th>-->
+<!--                            <th>Due Date</th>-->
+<!--                            <th>Time</th>-->
+<!--                            <th>Status</th>-->
+<!--                            <th>Description</th>-->
+<!--                        </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                        <tr>-->
+<!--                            <td>Visualize the given data</td>-->
+<!--                            <td>12/12/2022</td>-->
+<!--                            <td>11:59 pm</td>-->
+<!--                            <td>Due</td>-->
+<!--                            <td class="warning">Pending</td>-->
+<!--                            <td class="primary">Description</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>solve these issues </td>-->
+<!--                            <td>12/12/2022</td>-->
+<!--                            <td>11:59 pm</td>-->
+<!--                            <td>Due</td>-->
+<!--                            <td class="warning">Pending</td>-->
+<!--                            <td class="primary">Description</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Visualize the given data</td>-->
+<!--                            <td>12/12/2022</td>-->
+<!--                            <td>11:59 pm</td>-->
+<!--                            <td>Due</td>-->
+<!--                            <td class="warning">Pending</td>-->
+<!--                            <td class="primary">Description</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Visualize the given data</td>-->
+<!--                            <td>12/12/2022</td>-->
+<!--                            <td>11:59 pm</td>-->
+<!--                            <td>Due</td>-->
+<!--                            <td class="warning">Pending</td>-->
+<!--                            <td class="primary">Description</td>-->
+<!--                        </tr>-->
+<!--                    </tbody>-->
+<!--                </table>-->
+<!--                <a href="#">Show More</a>-->
+
+<!--            </div>-->
+<!--        </main>-->
+<!--        &lt;!&ndash; -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;END OF MAIN-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--        <div class="right">-->
+<!--&lt;!&ndash;            <div class="top">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <button id="menu-btn">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <span class="material-icons-sharp">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                        menu&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                        </span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </button>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <a href="user_profile.html">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="profile">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="info">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                Hey,<b>Johana</b>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </p>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <small class="text-muted">User</small>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="profile-photo">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a th:href="@{~/user/profile}"><img th:src="@{~/images/pp.jpg}" alt="avatar" class="avatar"></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--            <div class="recent-notices">-->
+<!--                <h2>Recent Notices</h2>-->
+<!--                <div class="Notices">-->
+<!--                    <div class="Notice">-->
+<!--                        <div class="profile-photo">-->
+<!--                            <img th:src="@{~/images/pp.jpg}" alt="avatar" class="avatar">-->
+<!--                        </div>-->
+<!--                        <div class="message">-->
+<!--                            <p><b>Mike Tyson</b> All the staffs are requested to be in the meeting hall </p>-->
+<!--                            <small class="test-muted">2 minutes ago</small>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="Notice">-->
+<!--                        <div class="profile-photo">-->
+<!--                            <img th:src="@{~/images/pp.jpg}" alt="avatar" class="avatar">-->
+<!--                        </div>-->
+<!--                        <div class="message">-->
+<!--                            <p><b>Danny Tyson</b> On friday, you have a day off </p>-->
+<!--                            <small class="test-muted">2 hours ago</small>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="Notice">-->
+<!--                        <div class="profile-photo">-->
+<!--                            <img th:src="@{~/images/pp.jpg}" alt="avatar" class="avatar">-->
+<!--                        </div>-->
+<!--                        <div class="message">-->
+<!--                            <p><b>Mitchell Tyson</b> Open space near the canteen</p>-->
+<!--                            <small class="test-muted">5 hours ago</small>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <a href="#">Show More</a>-->
+<!--    </div>-->
+
+<!--</body>-->
+
+<!--</html>-->

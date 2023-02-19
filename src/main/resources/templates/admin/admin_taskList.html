@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{~/css/admin.css}" rel="stylesheet" />
+    <link th:href="@{~/scss/styles.scss}" rel="stylesheet" />
+
+    <script th:src="@{~/javascript/content.js}"></script>
+    <title>Tasks List</title>
+</head>
+<body>
+<div class="text-center">
+    <h1 class="display"><strong>Add Notice</strong></h1>
+</div>
+<div class="Table">
+    <a th:href="@{/admin/taskList}"></a>
+    <table class="Table">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Assigned To</th>
+            <th>Due Date</th>
+            <th>Due Time</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody class="Table-body" >
+        <p th:if="${successMsg}" th:text="${successMsg}"></p>
+        <p th:if="${deleteMsg}" th:text="${deleteMsg}"></p>
+        <tr th:each = "task:${taskList}">
+            <td th:text = "${task.title}"></td>
+            <td th:text = "${task.description}"></td>
+            <td th:text = "${task.assignedTo}"></td>
+            <td th:text = "${task.dueDate}"></td>
+            <td th:text = "${task.dueTime}"></td>
+            <td>
+                <div class="dropdown">
+                    <select>
+                        <option value="pending">pending yo fetch garney</option>
+                        <option value="doing">doing</option>
+                        <option value="done">done</option>
+                    </select>
+                </div>
+            </td>
+            <td>
+                   <a th:href ="@{~/admin/editTask/{id}(id=${task.id})}" class = "btn btn-primary">Update</a>
+                <a th:href = "@{~/admin/deleteTask/{id}(id=${task.id})}" class = "btn btn-danger">Delete</a>
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

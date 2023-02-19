@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{~/css/admin.css}" rel="stylesheet" />
+    <script th:src="@{~/javascript/content.js}"></script>
+    <title>Notice List</title>
+</head>
+<body>
+<div class="text-center">
+    <h1 class="display"><strong>Notice History</strong></h1>
+</div>
+
+<div class="Table">
+    <a th:href="@{/admin/noticeList}"></a>
+    <table class="Table">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody  class="Table-body" >
+        <p th:if="${successMsg}" th:text="${successMsg}"></p>
+        <p th:if="${deleteMsg}" th:text="${deleteMsg}"></p>
+        <tr th:each = "notice: ${noticeList}">
+            <td th:text = "${notice.title}"></td>
+            <td th:text = "${notice.description}"></td>
+            <td>
+                <a th:href = "@{~/admin/editNotice/}+${notice.id}" class = "btn btn-primary">Update</a>
+                <a th:href="@{~/admin/deleteNotice/}+${notice.id}" class = "btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

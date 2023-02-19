@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head   xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{~/css/admin.css}" rel="stylesheet" />
+    <link th:href="@{~/scss/styles.scss}" rel="stylesheet" />
+    <script th:src="@{~/javascript/content.js}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Your Tasks</title>
+</head>
+
+<body>
+    <div class="Wrapper">
+        <div class="text-center">
+            <h1 class="display"><strong>Tasks</strong></h1>
+        </div>
+        <div class="Table">
+<!--            <a th:href="@{/admin/addTasks}"></a>-->
+            <table class="table-tasks">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Due Date</th>
+                        <th>Assigned To</th>
+                        <th>DueTime</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="tasks-list">
+                <tr th:each="tasks : ${taskList}">
+                    <td th:text="${tasks.title}"></td>
+                    <td th:text="${tasks.description}"></td>
+                    <td th:text="${tasks.assignedTo}"></td>
+                    <td th:text="${tasks.dueDate}"></td>
+                    <td th:text="${tasks.dueTime}"></td>
+                    <td>
+                        <div class="dropdown">
+                            <select>
+                                <option value="pending">pending</option>
+                                <option value="doing">doing</option>
+                                <option value="done">done</option>
+                            </select>
+                        </div>
+                    </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

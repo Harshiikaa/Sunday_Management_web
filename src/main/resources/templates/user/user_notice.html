@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{~/css/admin.css}" rel="stylesheet" />
+    <link th:href="@{~/scss/styles.scss}" rel="stylesheet" />
+
+    <script th:src="@{~/javascript/content.js}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Your Notices</title>
+</head>
+
+<body style="color: black; background-color: white;">
+    <div class="Wrapper">
+        <div class="text-center">
+            <h1 class="display"><strong>Notice</strong></h1>
+        </div>
+        <div class="main-row">
+            <form action="" id="notice-form" class="row-justify">
+
+                <div class="Table">
+                    <table class="Table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Notice Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="Table-body">
+                        <tr th:each = "notice: ${noticeList}">
+                            <td th:text = "${notice.title}"></td>
+                            <td th:text = "${notice.description}"></td>
+<!--                            <td>-->
+<!--                                <a href="#">View</a>-->
+
+<!--                            </td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </form>
+    </div>
+    </div>
+
+
+
+</body>
+
+</html>

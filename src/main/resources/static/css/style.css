@@ -1,0 +1,470 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track {
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 5rem;
+}
+
+.main {
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(assets/images/2.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    -webkit-background-size: cover;
+}
+
+.navbar {
+    overflow: hidden;
+    position: fixed;
+    width: 1000px;
+    height: 75px;
+    margin: auto;
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+}
+
+header {
+    background-image: url("/assets/images/1.png");
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    -webkit-background-size: cover;
+    background-size: cover;
+    justify-content: space-between;
+    padding: 1.5rem;
+    background-position: center center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header .logo img {
+    height: 10rem;
+    position: relative;
+}
+
+.icon {
+    width: 300px;
+    float: left;
+    height: 100px;
+}
+
+.logo {
+    /* color: white;
+    font-size: 35px;
+    font-family: Arial; */
+    padding-left: 20px;
+    float: left;
+    height: 50px;
+    width: 50px;
+    padding-top: 2px;
+}
+
+.menu {
+    display: inline-block;
+    width: 800px;
+    float: left;
+    height: 70px;
+}
+
+ul {
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li {
+    list-style: none;
+    margin-left: 60px;
+    margin-top: 27px;
+    font-size: 14px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.1s ease-in-out;
+}
+
+ul li a:hover {
+    color: #ff7200;
+}
+
+
+/* .search {
+    width: 300px;
+    float: right;
+    margin-right: 0px;
+} */
+
+
+/* .srch {
+    font-family: "Times New Roman";
+    width: 200px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid #ff7200;
+    margin-top: 13px;
+    color: #fff;
+    border-right: none;
+    font-size: 16px;
+    float: left;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+} */
+
+.btn {
+    width: 200px;
+    height: 100px;
+    background: #ff7200;
+    border: 2px solid #ff7200;
+    margin-top: 13px;
+    color: #f2f2f2;
+    font-size: 15px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.content {
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color: #fff;
+    position: relative
+}
+
+.content .par {
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+.content h1 {
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    padding-left: 20%;
+    margin-top: 9%;
+    letter-spacing: 2px;
+}
+
+.content cn {
+    width: 160px;
+    height: 40px;
+    background: #ff7200;
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.content cn {
+    text-decoration: none;
+    color: black;
+    transition: .3s ease;
+}
+
+.features {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.featureIcon {
+    width: 50px;
+    height: 50px;
+}
+
+.featureTitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 20px;
+}
+
+.featureDesc {
+    color: gray;
+    width: 50%;
+    height: 100px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: large;
+    position: relative;
+    align-content: flex-start;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.memberImage {
+    width: 50px;
+    height: 50px;
+}
+
+.memberTitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 20px;
+}
+
+.memberDesc {
+    color: gray;
+    width: 50%;
+    height: 100px;
+}
+
+.newSeason {
+    display: flex;
+}
+
+.nsItem {
+    flex: 1;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.nsImg {
+    width: 100%;
+    height: 500px;
+}
+
+.nsTitle {
+    font-size: 40px;
+}
+
+.nsButton {
+    padding: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+}
+
+.footerLeft {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.fMenuTitle {
+    font-size: 16px;
+}
+
+.fList {
+    padding: 0;
+    list-style: none;
+}
+
+.fListItem {
+    margin-bottom: 10px;
+    color: gray;
+    cursor: pointer;
+}
+
+.footerRight {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fInput {
+    padding: 5px;
+}
+
+.fButton {
+    padding: 5px;
+    background-color: black;
+    color: white;
+}
+
+.fIcons {
+    display: flex;
+}
+
+.fIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.copyright {
+    font-weight: 300;
+    font-size: 14px;
+}
+
+@media screen and (max-width:480px) {
+    nav {
+        padding: 20px;
+    }
+    .search {
+        display: none;
+    }
+    .navBottom {
+        flex-wrap: wrap;
+    }
+    .menuItem {
+        margin: 20px;
+        font-weight: 700;
+        font-size: 20px;
+    }
+    .slider {
+        clip-path: none;
+    }
+    .sliderImg {
+        width: 90%;
+    }
+    .sliderBg {
+        width: 100%;
+        height: 100%;
+    }
+    .sliderTitle {
+        display: none;
+    }
+    .sliderPrice {
+        top: unset;
+        bottom: -50;
+        left: 0;
+        background-color: lightgrey;
+    }
+    .buyButton {
+        right: 0;
+        top: 0;
+    }
+    .features {
+        flex-direction: column;
+    }
+    .product {
+        clip-path: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .productImg {
+        width: 80%;
+    }
+    .productDetails {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        top: 0;
+    }
+    .productTitle {
+        font-size: 50px;
+        margin: 0;
+    }
+    .gallery {
+        display: none;
+    }
+    .newSeason {
+        flex-direction: column;
+    }
+    .nsItem:nth-child(2) {
+        padding: 50px;
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footerLeft {
+        padding: 20px;
+        width: 90%;
+    }
+    .footerRight {
+        padding: 20px;
+        width: 90%;
+        align-items: center;
+        background-color: whitesmoke;
+    }
+    .payment {
+        width: 90%;
+        padding: 20px;
+    }
+    .buyButton {
+        float: left;
+        padding: 10px 20px;
+        background-color: black;
+        color: white;
+        font-weight: 100;
+        font-size: 50;
+        cursor: pointer;
+    }
+    .buyButton:hover {
+        background-color: white;
+        color: black;
+    }
+}
