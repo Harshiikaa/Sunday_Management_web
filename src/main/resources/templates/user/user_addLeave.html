@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{~/css/admin.css}" rel="stylesheet" />
+    <link th:href="@{~/scss/styles.scss}" rel="stylesheet" />
+
+    <link th:href="@{~/scss/styles.scss}" rel="stylesheet" />
+
+    <script th:src="@{~/javascript/content.js}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Take Leave</title>
+</head>
+
+<body style="color:black; background-color:white;">
+    <div class="Wrapper">
+        <div class="text-center">
+            <h1 class="display"><strong>Create Leave</strong></h1>
+        </div>
+        <div class="main-row">
+            <form th:method="post"
+                  th:action="@{/user/addLeave/save}"
+                  th:object="${leave}" enctype="multipart/form-data"
+                    id="leave-form" class="row-justify">
+                <div class="inputs">
+                    <label for="From-Date">From Date</label>
+                    <input class="form-control"  th:field="*{fromDate}" th:value="${leave.fromDate}" id="from-date" type="date" placeholder="Enter the start date">
+                    <label for="To-Date">To Date</label>
+                    <input class="form-control" th:field="*{toDate}" th:value="${leave.toDate}" id="to-date" type="date" placeholder="Enter the end date">
+                    <label for="Subject">Subject</label>
+                    <input class="form-control" th:field="*{subject}" th:value="${leave.subject}" id="subject" type="text" placeholder="Enter the subject">
+                    <label for="Description">Description</label>
+                    <input class="form-control" th:field="*{description}" th:value="${leave.description}" id="description" type="text" placeholder="Enter the description">
+
+                    <div class="submit">
+                        <input type="submit" value="Submit" />
+                    </div>
+                    <div class="history">
+                        <a th:href="@{~/user/leaveList}">See History</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

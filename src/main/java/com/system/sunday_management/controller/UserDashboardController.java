@@ -73,8 +73,8 @@ public class UserDashboardController {
         return "user/user_profile";
     }
     
-    @GetMapping("/leave")
-    public String getLeave(){
-        return "user/user_leave";
-    }
+//    @GetMapping("/leave")
+//    public String getLeave(){
+//        return "user/user_leave";
+//    }
 }

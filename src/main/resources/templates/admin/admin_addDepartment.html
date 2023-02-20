@@ -18,34 +18,37 @@
             <h1 class="display"><strong>Add Department</strong></h1>
         </div>
         <div class="main-row">
-            <form action="" id="department-form" class="row-justify">
+            <form th:method="post"
+                  th:action="@{/admin/addDepartment/save}"
+                  th:object="${department}" enctype="multipart/form-data" id="department-form" class="row-justify">
                 <div class="inputs">
                     <label for="department">Department</label>
-                    <input class="form-control" id="title" type="text" placeholder="Enter the Department">
+                    <input class="form-control"  th:field="*{department}" th:value="${department.department}" id="title" type="text" placeholder="Enter the Department">
                 </div>
-
                 <div class="submit">
-                    <button type="submit">Add</button>
+                    <input type="submit" value="Add" />
+                </div>
+                <div class="history">
+                    <a th:href="@{~/admin/departmentList}">See History</a>
                 </div>
 
-                <div class="Table">
-                    <table class="Table">
-                        <thead>
-                            <tr>
-                                <th>Department</th>
-                                <th>Actions</th>
+<!--                <div class="Table">-->
+<!--                    <table class="Table">-->
+<!--                        <thead>-->
+<!--                            <tr>-->
+<!--                                <th>Department</th>-->
+<!--                                <th>Actions</th>-->
 
-                            </tr>
-                        </thead>
-                        <tbody class="Table-body">
-                            <td>Marketing</td>
-                            <td>
-                                <button class="danger"> <a href="#" >Delete</a></button>
-                            </td>
-                        </tbody>
-                    </table>
-                </div>
-<!--        </div>-->
+<!--                            </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody class="Table-body">-->
+<!--                            <td>Marketing</td>-->
+<!--                            <td>-->
+<!--                                <button class="danger"> <a href="#" >Delete</a></button>-->
+<!--                            </td>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+<!--                </div>-->
         </form>
     </div>
     </div>

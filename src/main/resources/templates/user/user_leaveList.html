@@ -6,37 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:href="@{~/css/admin.css}" rel="stylesheet" />
     <script th:src="@{~/javascript/content.js}"></script>
-    <title>Notice List</title>
+    <title>Leave List</title>
 </head>
 <body>
-<div class="text-center">
-    <h1 class="display"><strong>Notice History</strong></h1>
-</div>
-
 <div class="Table">
-    <a th:href="@{/admin/noticeList}"></a>
+    <a th:href="@{/user/leaveList}"></a>
     <table class="Table">
         <thead>
         <tr>
-            <th>Title</th>
+            <th>FromDate</th>
+            <th>ToDate</th>
+            <th>Subject</th>
             <th>Description</th>
-            <th>Actions</th>
+            <th>Status</th>
         </tr>
         </thead>
         <tbody  class="Table-body" >
         <p th:if="${successMsg}" th:text="${successMsg}"></p>
         <p th:if="${deleteMsg}" th:text="${deleteMsg}"></p>
-        <tr th:each = "notice: ${noticeList}">
-            <td th:text = "${notice.title}"></td>
-            <td th:text = "${notice.description}"></td>
+        <tr th:each = "leave: ${leaveList}">
+            <td th:text = "${leave.fromDate}"></td>
+            <td th:text = "${leave.toDate}"></td>
+            <td th:text = "${leave.subject}"></td>
+            <td th:text = "${leave.description}"></td>
             <td>
-                <a th:href = "@{~/admin/editNotice/}+${notice.id}" class = "btn btn-primary" style="background-color: #04AA6D;  padding: 10px 20px;
+                <a th:href = "@{~/user/editLeave/}+${leave.id}" class = "btn btn-primary" style="background-color: #04AA6D;  padding: 10px 20px;
     border: none;
     border-radius: 4px;
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s ease;" >Update</a></button>
-                <a th:href="@{~/admin/deleteNotice/}+${notice.id}" class = "btn btn-danger" style="background-color: red;  padding: 10px 20px;
+                <a th:href="@{~/user/deleteLeave/}+${leave.id}" class = "btn btn-danger" style="background-color: red;  padding: 10px 20px;
     border: none;
     border-radius: 4px;
     text-decoration: none;

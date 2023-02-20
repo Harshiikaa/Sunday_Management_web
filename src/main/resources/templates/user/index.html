@@ -13,29 +13,50 @@
 </head>
 <body>
 <!-- header created -->
+<!--<header class="header">-->
+<!--    &lt;!&ndash; for insertion of logo &ndash;&gt;-->
+<!--    <div class="logo">-->
+<!--        <img th:src="@{~/images/logo.png}" alt="">-->
+<!--    </div>-->
+<!--    &lt;!&ndash; nav bar  &ndash;&gt;-->
+<!--    <nav class="navbar">-->
+<!--        <a href="#">Home</a>-->
+<!--        <a href="#about">About</a>-->
+<!--        <a href="#quality">Quality</a>-->
+<!--        <a href="#">Contact</a>-->
+<!--    </nav>-->
+<!--    &lt;!&ndash; icons in navbar &ndash;&gt;-->
+<!--    <div class="icons">-->
+<!--        &lt;!&ndash; <div id="search-bar" class="fas fa-search"></div> &ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="Search-btn" href="#">Search</a>&ndash;&gt;-->
+<!--        &lt;!&ndash; <div id="profile-bar" class="fas fa-user"></div> &ndash;&gt;-->
+<!--        <a class="Login-btn" th:href="@{~/user/login}" >Login</a>-->
+
+<!--    </div>-->
+<!--</header>-->
 <header class="header">
     <!-- for insertion of logo -->
     <div class="logo">
         <img th:src="@{~/images/logo.png}" alt="">
     </div>
+    <!-- toggle button for mobile view -->
+    <button class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
     <!-- nav bar  -->
     <nav class="navbar">
         <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Menu</a>
+        <a href="#about">About</a>
+        <a href="#quality">Quality</a>
         <a href="#">Contact</a>
     </nav>
     <!-- icons in navbar -->
     <div class="icons">
-        <!-- <div id="search-bar" class="fas fa-search"></div> -->
-<!--        <a class="Search-btn" href="#">Search</a>-->
-        <!-- <div id="profile-bar" class="fas fa-user"></div> -->
         <a class="Login-btn" th:href="@{~/user/login}" >Login</a>
-
     </div>
 </header>
-
-
 
 <!-- for displaying main page  -->
 <div class="homee" th:style="'background:url('+ @{~/images/2.jpg} +')'">
@@ -44,6 +65,7 @@
             <div class="homee-image">
                 <!-- pic inserted -->
                 <img th:src="@{~/images/sun.png}" alt="" >
+
             </div>
 
             <!-- creating css for this  -->
@@ -57,14 +79,14 @@
         </div>
     </div>
 
-
 </div>
 
-<div id="about" class="about">
+<section id="about" class="about">
     <div class="main-about">
         <div class="about-content">
             <div class="about-inner-content">
-                <img th:src="@{~/images/womenonlaptop.jpg}" alt="">
+                <img src="https://tinypic.host/images/2023/02/19/women.jpg"
+                     class="mx-auto" alt="image">
             </div>
         </div>
 
@@ -72,14 +94,16 @@
             <div class="about-inner-content">
                 <div class="about-text-content">
                     <h1>About us</h1>
-                    <p> Our system is all about completing your tasks feeling like Sunday and have fun.</p>
+                    <p> My name is Chandra Mukhi.</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<div class="quality">
+<!--Ends Here-->
+
+<section class="quality" id="quality">
     <div class="main-quality">
         <div class="main-inner-quality">
             <div class="quality-content">
@@ -94,10 +118,10 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 
-<div class="gallery">
+<section class="gallery">
     <div class="main-gallery">
         <div class="inner-gallery">
             <div class="gallery-image">
@@ -137,15 +161,42 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<div class="enjoy-our-food"  th:style="'background:url('+ @{~/images/2.jpg} +')'">
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#8593;</button>
+
+
+<section sec="enjoy-our-food"  th:style="'background:url('+ @{~/images/2.jpg} +')'">
     <div class="food-main-content">
         <h1>enjoy our food</h1>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero suscipit perspiciatis vel quia, quae magni, beatae laboriosam nisi eligendi alias obcaecati dignissimos sit tempora ab hic voluptate quidem distinctio animi?</p>
     </div>
-</div>
-<script th:src="@{~js/main.js}"></script>
+</section>
+
+<footer>
+    <p>&copy; 2023 My Website. All rights reserved.</p>
+</footer>
+
+<script>
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.documentElement.scrollTop = 0;
+    }
+
+</script>
+
+
+
+<script th:src="@{~/javascript/main.js}"></script>
 
 </body>
 </html>

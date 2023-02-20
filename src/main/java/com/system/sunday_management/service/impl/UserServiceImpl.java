@@ -13,8 +13,6 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.List;
 
-// required waala decorator ley constructor banaairakhna pardaina
-
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -24,6 +22,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public String save(UserPojo userPojo) throws IOException {
         User user = new User();
+        user.setId(userPojo.getId());
         user.setEmail(userPojo.getEmail());
         user.setFullName(userPojo.getFullName());
         user.setMobileNo(userPojo.getMobileNumber());

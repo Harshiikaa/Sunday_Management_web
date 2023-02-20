@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:href="@{~/css/admin.css}" rel="stylesheet" />
     <link th:href="@{~/scss/styles.scss}" rel="stylesheet" />
-
     <script th:src="@{~/javascript/content.js}"></script>
     <title>Tasks List</title>
 </head>
 <body>
 <div class="text-center">
-    <h1 class="display"><strong>Add Notice</strong></h1>
+    <h1 class="display"><strong>Add Tasks</strong></h1>
 </div>
 <div class="Table">
     <a th:href="@{/admin/taskList}"></a>
@@ -47,10 +46,19 @@
                 </div>
             </td>
             <td>
-                   <a th:href ="@{~/admin/editTask/{id}(id=${task.id})}" class = "btn btn-primary">Update</a>
-                <a th:href = "@{~/admin/deleteTask/{id}(id=${task.id})}" class = "btn btn-danger">Delete</a>
+                   <a th:href ="@{~/admin/editTask/{id}(id=${task.id})}" class = "btn btn-primary" style="background-color: #04AA6D;  padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;">Update</a>
+                <a th:href = "@{~/admin/deleteTask/{id}(id=${task.id})}" class = "btn btn-danger" style="background-color: red;  padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;">Delete</a>
             </td>
-
         </tr>
 
         </tbody>

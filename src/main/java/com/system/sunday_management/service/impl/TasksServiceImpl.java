@@ -17,6 +17,7 @@ public class TasksServiceImpl implements TasksService {
     @Override
     public String saveTasks(TasksPojo tasksPojo) throws IOException {
         Task task = new Task();
+        task.setId(tasksPojo.getId());
         task.setTitle(tasksPojo.getTitle());
         task.setDescription(tasksPojo.getDescription());
         task.setAssignedTo(tasksPojo.getAssignedTo());
@@ -25,11 +26,6 @@ public class TasksServiceImpl implements TasksService {
         tasksRepo.save(task);
         return "Saved";
     }
-
-//    @Override
-//    public String save(TasksPojo tasksPojo) throws IOException {
-//        return null;
-//    }
 
     @Override
     public List<Task> getAllTasks() {
@@ -46,11 +42,4 @@ public class TasksServiceImpl implements TasksService {
         tasksRepo.deleteById(id);
 
     }
-
-//    @Override
-//    public List<Task> fetchAll() {
-//        return tasksRepo.findAll();
-//    }
-
-
 }

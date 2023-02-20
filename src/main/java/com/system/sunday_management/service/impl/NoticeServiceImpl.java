@@ -18,6 +18,7 @@ public class NoticeServiceImpl implements NoticeService {
     @Override
     public String saveNotice(NoticePojo noticePojo) throws IOException {
         Notice notice = new Notice();
+        notice.setId(noticePojo.getId());
         notice.setTitle(noticePojo.getTitle());
         notice.setDescription(noticePojo.getDescription());
         noticeRepo.save(notice);

@@ -28,7 +28,6 @@ public class TasksPojo {
     @NotEmpty(message = "due time can't be empty")
     private String dueTime;
 
-//    private MultipartFile image;
 public TasksPojo(Task task){
     this.id= task.getId();
     this.title= task.getTitle();
@@ -38,6 +37,4 @@ public TasksPojo(Task task){
     this.dueTime= task.getDueTime();
 
 }
-
-
 }

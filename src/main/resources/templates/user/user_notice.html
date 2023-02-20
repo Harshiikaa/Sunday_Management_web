@@ -20,7 +20,6 @@
         </div>
         <div class="main-row">
             <form action="" id="notice-form" class="row-justify">
-
                 <div class="Table">
                     <table class="Table">
                         <thead>
@@ -33,10 +32,6 @@
                         <tr th:each = "notice: ${noticeList}">
                             <td th:text = "${notice.title}"></td>
                             <td th:text = "${notice.description}"></td>
-<!--                            <td>-->
-<!--                                <a href="#">View</a>-->
-
-<!--                            </td>-->
                         </tr>
                         </tbody>
                     </table>

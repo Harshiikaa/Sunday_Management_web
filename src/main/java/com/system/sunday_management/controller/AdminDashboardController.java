@@ -1,6 +1,8 @@
 package com.system.sunday_management.controller;
 
+import com.system.sunday_management.model.Leave;
 import com.system.sunday_management.model.User;
+import com.system.sunday_management.service.LeaveService;
 import com.system.sunday_management.service.NoticeService;
 import com.system.sunday_management.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,7 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminDashboardController {
     private final UserService userService;
+    private final LeaveService leaveService;
 
     @GetMapping("/dashboard")
     public String getAdminDashboard(){
@@ -32,13 +35,23 @@ public class AdminDashboardController {
         return "admin/admin_addNotice";
     }
 
-    @GetMapping("/addDepartment")
-    public String addDepartment(){
-        return "admin/admin_addDepartment";
-    }
+//    @GetMapping("/addDepartment")
+//    public String addDepartment(){
+//        return "admin/admin_addDepartment";
+//    }
 
     @GetMapping("/leaveSection")
-    public String leaveSection(){
+    public String leaveSection(Model model){
+        List<Leave> leaves = leaveService.getAllLeave();
+        model.addAttribute("leaveList", leaves.stream().map(leave ->
+                Leave.builder()
+                        .id(leave.getId())
+                        .fromDate(leave.getFromDate())
+                        .toDate(leave.getToDate())
+                        .subject(leave.getSubject())
+                        .description(leave.getDescription())
+                        .build()
+        ));
         return "admin/admin_leave";
     }
 

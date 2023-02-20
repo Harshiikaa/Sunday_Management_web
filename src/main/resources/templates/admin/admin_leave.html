@@ -19,37 +19,64 @@
             <h1 class="display"><strong>Leave</strong></h1>
         </div>
         <div class="Table">
-            <table class="Table">
-                <thead>
+            <div class="Table">
+                <table class="Table">
+                    <thead>
                     <tr>
-                        <th>From Date</th>
+                        <th>From Date</th>-->
                         <th>To Date</th>
                         <th>Subject</th>
                         <th>Description</th>
                         <th>Leave Request By</th>
                         <th>Status</th>
                         <th>Action</th>
-
                     </tr>
-                </thead>
-                <tbody class="Table-body">
-                    <td>202020</td>
-                    <td>292938</td>
-                    <td>Dear</td>
-                    <td>Dear</td>
-                    <td>Harshika</td>
-                    <td>
-                        <div class="dropdown">
+                    </thead>
+                    <tbody class="Table-body">
+                    <tr th:each = "leave: ${leaveList}">
+                        <td th:text = "${leave.fromDate}"></td>
+                        <td th:text = "${leave.toDate}"></td>
+                        <td th:text = "${leave.subject}"></td>
+                        <td th:text = "${leave.description}"></td>
+                        <div class="dropdown">-->
                             <select>
                                 <option value="pending">pending</option>
                                 <option value="doing">Approved</option>
                             </select>
                         </div>
-                    </td>
-                    <td>
-                        <a href="#">View</a></td>
-                </tbody>
-            </table>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+<!--            <table class="Table">-->
+<!--                <thead>-->
+<!--                    <tr>-->
+<!--                        <th>From Date</th>-->
+<!--                        <th>To Date</th>-->
+<!--                        <th>Subject</th>-->
+<!--                        <th>Description</th>-->
+<!--                        <th>Leave Request By</th>-->
+<!--&lt;!&ndash;                        <th>Status</th>&ndash;&gt;-->
+<!--                        <th>Action</th>-->
+
+<!--                    </tr>-->
+<!--                </thead>-->
+<!--                <tbody class="Table-body">-->
+<!--                    <td>202020</td>-->
+<!--                    <td>292938</td>-->
+<!--                    <td>Dear</td>-->
+<!--                    <td>Dear</td>-->
+<!--                    <td>Harshika</td>-->
+<!--                    <td>-->
+<!--                        <div class="dropdown">-->
+<!--                            <select>-->
+<!--                                <option value="pending">pending</option>-->
+<!--                                <option value="doing">Approved</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                    </td>-->
+<!--                </tbody>-->
+<!--            </table>-->
         </div>
     </div>
 
