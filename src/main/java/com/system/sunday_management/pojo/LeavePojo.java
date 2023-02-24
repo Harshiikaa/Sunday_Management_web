@@ -5,8 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,8 +19,6 @@ public class LeavePojo {
     private String subject;
     @NotEmpty(message = "description can't be empty")
     private String description;
-
-
 
     public LeavePojo(Leave leave){
         this.id= leave.getId();

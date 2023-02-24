@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="wid
 th=device-width, initial-scale=1.0">
-
     <title>User Dashboard</title>
+    <link th:href="@{~/css/admin.css}" rel="stylesheet" />
+    <link th:href="@{~/scss/styles.scss}" rel="stylesheet" />
     <link rel="stylesheet" th:href="@{~/css/sidebar.css}">
     <link rel="stylesheet" th:href="@{~/css/dashbody.css}">
     <!-- icon cdn -->
@@ -15,7 +16,6 @@ th=device-width, initial-scale=1.0">
 </head>
 
 <body>
-<!--<div class="nav-bar">-->
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -80,148 +80,176 @@ th=device-width, initial-scale=1.0">
             </div>
         </div>
     </nav>
-<!--</div>-->
-<div class="main-section">
+
     <section class="home">
         <div class="main-body">
             <main>
                 <div class="heading">
                     <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</h1>
                 </div>
-                <!-- <div class="date">
-                    <input type="date">
-                </div> -->
-                <div class="insights-all">
-                    <div class="insights">
-                        <div class="tasks">
-                            <div class="middle">
-                                <div class="left">
-                                    <h3>Total Tasks</h3>
-                                </div>
-
-                                <h1>&nbsp;&nbsp;&nbsp;15</h1>
-                            </div>
-                            <div class="progress">
-                                <!--                    <svg>-->
-                                <!--                        <circle cx="38" cy="38" r="36"></circle>-->
-                                <!--                    </svg>-->
-                                <!--                    <div class="number">-->
-                                <!--                        <p>-->
-                                <!--                            81%-->
-                                <!--                        </p>-->
-                                <!--                    </div>-->
-                            </div>
-                            <small class="text-muted">Last 24 hours</small>
-                        </div>
-                        <!-- -------- END OF TASKS--------- -->
-
-                        <div class="salary">
-                            <div class="middle">
-                                <div class="left">
-                                    <h3>Total Leave</h3>
-                                </div>
-
-                                <h1>&nbsp;&nbsp;&nbsp;15</h1>
-                            </div>
-                            <div class="progress">
-                                <!--                    <svg>-->
-                                <!--                        <circle cx="38" cy="38" r="36"></circle>-->
-                                <!--                    </svg>-->
-                                <!--                    <div class="number">-->
-                                <!--                        <p>-->
-                                <!--                            62%-->
-                                <!--                        </p>-->
-                                <!--                    </div>-->
-                            </div>
-                            <small class="text-muted">Last 24 hours</small>
-                        </div>
-                        <!-- -------- END OF Leave INSIGHT--------- -->
-
-
-                        <div class="notice">
-                            <!--                    <span class="material-icons-sharp">-->
-                            <!--                        announcement-->
-                            <!--                        </span>-->
-                            <div class="middle">
-                                <div class="left">
-                                    <h3>Total Notice</h3>
-                                    <!--                        <i class="bx bx-home-alt icon"></i>-->
-                                </div>
-
-
-                                <h1>&nbsp;&nbsp;&nbsp;15</h1>
-                            </div>
-                            <div class="progress">
-                                <!--                    <svg>-->
-                                <!--                        <circle cx="38" cy="38" r="36"></circle>-->
-                                <!--                    </svg>-->
-                                <!--                    <div class="number">-->
-                                <!--                        <p>-->
-                                <!--                            44%-->
-                                <!--                        </p>-->
-                                <!--                    </div>-->
-                            </div>
-                            <small class="text-muted">Last 24 hours</small>
-                        </div>
-                        <!-- -------- END OF NOTICES INSIGHT --------- -->
-                    </div>
-
-                </div>
-
-                <!-- -------- END OF INSIGHT --------- -->
-                <div class="recent-tasks">
-                    <h2>
-                        Recent Tasks
-                    </h2>
-                    <table>
+                <div class="Table">
+                    <h1>Notices</h1>
+                    <table class="Table">
                         <thead>
                         <tr>
-                            <th>Task</th>
-                            <th>Due Date</th>
-                            <th>Time</th>
-                            <th>Status</th>
-                            <th>Description</th>
+                            <th>Title</th>
+                            <th>Notice Description</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>Visualize the given data</td>
-                            <td>12/12/2022</td>
-                            <td>11:59 pm</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Description</td>
-                        </tr>
-                        <tr>
-                            <td>solve these issues </td>
-                            <td>12/12/2022</td>
-                            <td>11:59 pm</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Description</td>
-                        </tr>
-                        <tr>
-                            <td>Visualize the given data</td>
-                            <td>12/12/2022</td>
-                            <td>11:59 pm</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Description</td>
-                        </tr>
-                        <tr>
-                            <td>Visualize the given data</td>
-                            <td>12/12/2022</td>
-                            <td>11:59 pm</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Description</td>
+                        <tbody class="Table-body">
+                        <tr th:each = "notice: ${noticeList}">
+                            <td th:text = "${notice.title}"></td>
+                            <td th:text = "${notice.description}"></td>
                         </tr>
                         </tbody>
                     </table>
-                    <a th:href="@{~/user/tasks}">Show More</a>
                 </div>
+
+                <div class="Table">
+                    <h1>Tasks</h1>
+                    <table class="table-tasks">
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Assigned To</th>
+                            <th>Due Date</th>
+                            <th>DueTime</th>
+                            <!--                        <th>Action</th>-->
+                        </tr>
+                        </thead>
+                        <tbody class="tasks-list">
+                        <tr th:each="tasks : ${taskList}">
+                            <td th:text="${tasks.title}"></td>
+                            <td th:text="${tasks.description}"></td>
+                            <td th:text="${tasks.assignedTo}"></td>
+                            <td th:text="${tasks.dueDate}"></td>
+                            <td th:text="${tasks.dueTime}"></td>
+                            <!--                    <td>-->
+                            <!--                        <div class="dropdown">-->
+                            <!--                            <select>-->
+                            <!--                                <option value="pending">pending</option>-->
+                            <!--                                <option value="doing">doing</option>-->
+                            <!--                                <option value="done">done</option>-->
+                            <!--                            </select>-->
+                            <!--                        </div>-->
+                            <!--                    </td>-->
+                        </tbody>
+                    </table>
+                </div>
+<!--                <div class="insights-all">-->
+<!--                    <div class="insights">-->
+<!--                        <div class="tasks">-->
+<!--                            <div class="middle">-->
+<!--                                <div class="left">-->
+<!--                                    <h3>Total Tasks</h3>-->
+<!--                                </div>-->
+
+<!--                                <h1>&nbsp;&nbsp;&nbsp;15</h1>-->
+<!--                            </div>-->
+<!--                            <div class="progress">-->
+<!--                                &lt;!&ndash;                    <svg>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                        <circle cx="38" cy="38" r="36"></circle>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                    </svg>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                    <div class="number">&ndash;&gt;-->
+<!--                                &lt;!&ndash;                        <p>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                            81%&ndash;&gt;-->
+<!--                                &lt;!&ndash;                        </p>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <small class="text-muted">Last 24 hours</small>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; END OF TASKS-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+
+<!--                        <div class="salary">-->
+<!--                            <div class="middle">-->
+<!--                                <div class="left">-->
+<!--                                    <h3>Total Leave</h3>-->
+<!--                                </div>-->
+
+<!--                                <h1>&nbsp;&nbsp;&nbsp;15</h1>-->
+<!--                            </div>-->
+<!--                            <div class="progress">-->
+<!--                                &lt;!&ndash;                    <svg>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                        <circle cx="38" cy="38" r="36"></circle>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                    </svg>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                    <div class="number">&ndash;&gt;-->
+<!--                                &lt;!&ndash;                        <p>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                            62%&ndash;&gt;-->
+<!--                                &lt;!&ndash;                        </p>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <small class="text-muted">Last 24 hours</small>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; END OF Leave INSIGHT-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+
+
+<!--                        <div class="notice">-->
+<!--                            <div class="middle">-->
+<!--                                <div class="left">-->
+<!--                                    <h3>Total Notice</h3>-->
+<!--                                </div>-->
+<!--                                <h1>&nbsp;&nbsp;&nbsp;15</h1>-->
+<!--                            </div>-->
+<!--                            <div class="progress">-->
+<!--                            </div>-->
+<!--                            <small class="text-muted">Last 24 hours</small>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; END OF NOTICES INSIGHT -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--                &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; END OF INSIGHT -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--                <div class="recent-tasks">-->
+<!--                    <h2>-->
+<!--                        Recent Tasks-->
+<!--                    </h2>-->
+<!--                    <table>-->
+<!--                        <thead>-->
+<!--                        <tr>-->
+<!--                            <th>Task</th>-->
+<!--                            <th>Due Date</th>-->
+<!--                            <th>Time</th>-->
+<!--                            <th>Status</th>-->
+<!--                            <th>Description</th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody>-->
+<!--                        <tr>-->
+<!--                            <td>Visualize the given data</td>-->
+<!--                            <td>12/12/2022</td>-->
+<!--                            <td>11:59 pm</td>-->
+<!--                            <td class="warning">Pending</td>-->
+<!--                            <td class="primary">Description</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>solve these issues </td>-->
+<!--                            <td>12/12/2022</td>-->
+<!--                            <td>11:59 pm</td>-->
+<!--                            <td class="warning">Pending</td>-->
+<!--                            <td class="primary">Description</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Visualize the given data</td>-->
+<!--                            <td>12/12/2022</td>-->
+<!--                            <td>11:59 pm</td>-->
+<!--                            <td class="warning">Pending</td>-->
+<!--                            <td class="primary">Description</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Visualize the given data</td>-->
+<!--                            <td>12/12/2022</td>-->
+<!--                            <td>11:59 pm</td>-->
+<!--                            <td class="warning">Pending</td>-->
+<!--                            <td class="primary">Description</td>-->
+<!--                        </tr>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+<!--                    <a th:href="@{~/user/tasks}">Show More</a>-->
+<!--                </div>-->
             </main>
-
         </div>
-
     </section>
-</div>
 
 <script>
     const body = document.querySelector('body'),

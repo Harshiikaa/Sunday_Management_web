@@ -71,7 +71,7 @@ main {
 .number {
     font-size: 18px;
     font-weight: bold;
-    color: #4285F4;
+    color: #04AA6D;
 }
 
 .text-muted {
@@ -82,7 +82,7 @@ main {
 
 .material-icons-sharp {
     font-size: 48px;
-    color: #4285F4;
+    color: #04AA6D;
 }
 
 .salary .material-icons-sharp {
@@ -125,14 +125,14 @@ th {
 }
 
 .primary {
-    color: #4285F4;
+    color: #04AA6D;
     font-weight: bold;
 }
 
 a {
     display: block;
     margin-top: 20px;
-    color: #4285F4;
+    color: #04AA6D;
     text-decoration: none;
     font-weight: bold;
 }

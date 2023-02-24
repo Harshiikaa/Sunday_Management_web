@@ -11,7 +11,9 @@ th=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" th:href="@{~/css/sidebar.css}">
     <link rel="stylesheet" th:href="@{~/css/dashbody.css}">
-    <!-- icon cdn -->
+    <link th:href="@{~/css/admin.css}" rel="stylesheet" />
+    <link th:href="@{~/scss/styles.scss}" rel="stylesheet" />
+    <script th:src="@{~/javascript/content.js}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
@@ -91,144 +93,152 @@ th=device-width, initial-scale=1.0">
     </div>
 </nav>
 
+
 <section class="home">
     <main>
         <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</h1>
-        <!-- <div class="date">
-            <input type="date">
-        </div> -->
-        <div class="insights">
-            <div class="tasks">
-<!--                    <span class="material-icons-sharp">-->
-<!--                        task-->
-<!--                        </span>-->
-                <div class="middle">
-                    <div class="left"></div>
-                    <h3>Total Tasks</h3>
-                    <h1>&nbsp;&nbsp;&nbsp;15</h1>
-                </div>
-                <div class="progress">
-<!--                    <svg>-->
-<!--                        <circle cx="38" cy="38" r="36"></circle>-->
-<!--                    </svg>-->
-<!--                    <div class="number">-->
-<!--                        <p>-->
-<!--                            81%-->
-<!--                        </p>-->
-<!--                    </div>-->
-                </div>
-                <small class="text-muted">Last 24 hours</small>
+        <div class="Table">
+            <div class="Table">
+                <h1>Leaves</h1>
+                <table class="Table">
+                    <thead>
+                    <tr>
+                        <th>From Date</th>
+                        <th>To Date</th>
+                        <th>Subject</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody class="Table-body">
+                    <tr th:each = "leave: ${leaveList}">
+                        <td th:text = "${leave.fromDate}"></td>
+                        <td th:text = "${leave.toDate}"></td>
+                        <td th:text = "${leave.subject}"></td>
+                        <td th:text = "${leave.description}"></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-            <!-- -------- END OF TASKS--------- -->
+            <div class="Table">
+                <h1>Tasks</h1>
+                <table class="Table">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Assigned To</th>
+                        <th>Due Date</th>
+                        <th>Due Time</th>
+                    </tr>
+                    </thead>
+                    <tbody class="Table-body" >
+                    <p th:if="${successMsg}" th:text="${successMsg}"></p>
+                    <p th:if="${deleteMsg}" th:text="${deleteMsg}"></p>
+                    <tr th:each = "task:${taskList}">
+                        <td th:text = "${task.title}"></td>
+                        <td th:text = "${task.description}"></td>
+                        <td th:text = "${task.assignedTo}"></td>
+                        <td th:text = "${task.dueDate}"></td>
+                        <td th:text = "${task.dueTime}"></td>
+                    </tr>
 
-            <div class="salary">
-<!--                    <span class="material-icons-sharp">-->
-<!--                        event_available-->
-<!--                        </span>-->
-                <div class="middle">
-                    <div class="left"></div>
-                    <h3>Total Leave</h3>
-                    <h1>&nbsp;&nbsp;&nbsp;15</h1>
-                </div>
-                <div class="progress">
-<!--                    <svg>-->
-<!--                        <circle cx="38" cy="38" r="36"></circle>-->
-<!--                    </svg>-->
-<!--                    <div class="number">-->
-<!--                        <p>-->
-<!--                            62%-->
-<!--                        </p>-->
-<!--                    </div>-->
-                </div>
-                <small class="text-muted">Last 24 hours</small>
+                    </tbody>
+                </table>
             </div>
-            <!-- -------- END OF Leave INSIGHT--------- -->
+<!--        <div class="insights">-->
+<!--            <div class="tasks">-->
+<!--                <div class="middle">-->
+<!--                    <div class="left"></div>-->
+<!--                    <h3>Total Tasks</h3>-->
+<!--                    <h1>&nbsp;&nbsp;&nbsp;15</h1>-->
+<!--                </div>-->
+<!--                <div class="progress">-->
+<!--                </div>-->
+<!--                <small class="text-muted">Last 24 hours</small>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; END OF TASKS-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+
+<!--            <div class="salary">-->
+<!--                <div class="middle">-->
+<!--                    <div class="left"></div>-->
+<!--                    <h3>Total Leave</h3>-->
+<!--                    <h1>&nbsp;&nbsp;&nbsp;15</h1>-->
+<!--                </div>-->
+<!--                <div class="progress">-->
+<!--                </div>-->
+<!--                <small class="text-muted">Last 24 hours</small>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; END OF Leave INSIGHT-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
 
 
-            <div class="notice">
-<!--                    <span class="material-icons-sharp">-->
-<!--                        announcement-->
-<!--                        </span>-->
-                <div class="middle">
-                    <div class="left">
-<!--                        <i class="bx bx-home-alt icon"></i>-->
-                    </div>
-
-                    <h3>Total Notice</h3>
-                    <h1>&nbsp;&nbsp;&nbsp;15</h1>
-                </div>
-                <div class="progress">
-<!--                    <svg>-->
-<!--                        <circle cx="38" cy="38" r="36"></circle>-->
-<!--                    </svg>-->
-<!--                    <div class="number">-->
-<!--                        <p>-->
-<!--                            44%-->
-<!--                        </p>-->
+<!--            <div class="notice">-->
+<!--                <div class="middle">-->
+<!--                    <div class="left">-->
 <!--                    </div>-->
-                </div>
-                <small class="text-muted">Last 24 hours</small>
-            </div>
-            <!-- -------- END OF NOTICES INSIGHT --------- -->
-        </div>
-        <!-- -------- END OF INSIGHT --------- -->
+
+<!--                    <h3>Total Notice</h3>-->
+<!--                    <h1>&nbsp;&nbsp;&nbsp;15</h1>-->
+<!--                </div>-->
+<!--                <div class="progress">-->
+
+<!--                </div>-->
+<!--                <small class="text-muted">Last 24 hours</small>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; END OF NOTICES INSIGHT -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; END OF INSIGHT -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
 
 
-        <div class="recent-tasks">
-            <h2>
-                Recent Tasks
-            </h2>
-            <table>
-                <thead>
-                <tr>
-                    <th>Task</th>
-                    <th>Due Date</th>
-                    <th>Time</th>
-                    <th>Status</th>
-                    <th>Description</th>
+<!--        <div class="recent-tasks">-->
+<!--            <h2>-->
+<!--                Recent Tasks-->
+<!--            </h2>-->
+<!--            <table>-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th>Task</th>-->
+<!--                    <th>Due Date</th>-->
+<!--                    <th>Time</th>-->
+<!--                    <th>Status</th>-->
+<!--                    <th>Description</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr>-->
+<!--                    <td>Visualize the given data</td>-->
+<!--                    <td>12/12/2022</td>-->
+<!--                    <td>11:59 pm</td>-->
+<!--                    <td class="warning">Pending</td>-->
+<!--                    <td class="primary">Description</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>solve these issues </td>-->
+<!--                    <td>12/12/2022</td>-->
+<!--                    <td>11:59 pm</td>-->
+<!--                    <td class="warning">Pending</td>-->
+<!--                    <td class="primary">Description</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Visualize the given data</td>-->
+<!--                    <td>12/12/2022</td>-->
+<!--                    <td>11:59 pm</td>-->
+<!--                    <td class="warning">Pending</td>-->
+<!--                    <td class="primary">Description</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Visualize the given data</td>-->
+<!--                    <td>12/12/2022</td>-->
+<!--                    <td>11:59 pm</td>-->
+<!--                    <td class="warning">Pending</td>-->
+<!--                    <td class="primary">Description</td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--            <a th:href="@{~/admin/addTasks}">Show More</a>-->
 
-
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Visualize the given data</td>
-                    <td>12/12/2022</td>
-                    <td>11:59 pm</td>
-                    <td class="warning">Pending</td>
-                    <td class="primary">Description</td>
-                </tr>
-                <tr>
-                    <td>solve these issues </td>
-                    <td>12/12/2022</td>
-                    <td>11:59 pm</td>
-                    <td class="warning">Pending</td>
-                    <td class="primary">Description</td>
-                </tr>
-                <tr>
-                    <td>Visualize the given data</td>
-                    <td>12/12/2022</td>
-                    <td>11:59 pm</td>
-                    <td class="warning">Pending</td>
-                    <td class="primary">Description</td>
-                </tr>
-                <tr>
-                    <td>Visualize the given data</td>
-                    <td>12/12/2022</td>
-                    <td>11:59 pm</td>
-                    <td class="warning">Pending</td>
-                    <td class="primary">Description</td>
-                </tr>
-                </tbody>
-            </table>
-            <a th:href="@{~/admin/addTasks}">Show More</a>
-
-        </div>
+<!--        </div>-->
     </main>
 </section>
-
-
 <script>
     const body = document.querySelector('body'),
         sidebar = body.querySelector('nav'),
@@ -236,7 +246,6 @@ th=device-width, initial-scale=1.0">
         searchBtn = body.querySelector(".search-box"),
         modeSwitch = body.querySelector(".toggle-switch"),
         modeText = body.querySelector(".mode-text");
-
 
     toggle.addEventListener("click", () => {
         sidebar.classList.toggle("close");

@@ -28,7 +28,7 @@ public class UserDashboardController {
     }
 
     @GetMapping ("/dashboard")
-    public String getDashboard(){
+    public String getDashboard(Model model){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         boolean hasUserRole = authentication.getAuthorities().stream()
                 .anyMatch(r -> r.getAuthority().equals("ADMIN"));
@@ -36,6 +36,25 @@ public class UserDashboardController {
         if(hasUserRole){
             return "redirect:/admin/dashboard";
         }
+        List<Notice> notices = noticeService.getAllNotices();
+        model.addAttribute("noticeList", notices.stream().map(notice ->
+                Notice.builder()
+                        .id(notice.getId())
+                        .title(notice.getTitle())
+                        .description(notice.getDescription())
+                        .build()
+        ));
+        List<Task> tasks = tasksService.getAllTasks();
+        model.addAttribute("taskList", tasks.stream().map(task ->
+                Task.builder()
+                        .id(task.getId())
+                        .title(task.getTitle())
+                        .description(task.getDescription())
+                        .assignedTo(task.getAssignedTo())
+                        .dueDate(task.getDueDate())
+                        .dueTime(task.getDueTime())
+                        .build()
+        ));
         return "user/user_dashboard";
     }
 

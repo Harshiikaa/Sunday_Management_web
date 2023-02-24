@@ -1,5 +1,4 @@
 package com.system.sunday_management.service.impl;
-
 import com.system.sunday_management.model.Notice;
 import com.system.sunday_management.pojo.NoticePojo;
 import com.system.sunday_management.repository.NoticeRepo;
@@ -14,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class NoticeServiceImpl implements NoticeService {
     private final NoticeRepo noticeRepo;
-
     @Override
     public String saveNotice(NoticePojo noticePojo) throws IOException {
         Notice notice = new Notice();
@@ -24,17 +22,12 @@ public class NoticeServiceImpl implements NoticeService {
         noticeRepo.save(notice);
         return "Saved";
     }
-
     @Override
     public List<Notice> getAllNotices() {
         return noticeRepo.findAll();
     }
-
     @Override
-    public Notice fetchById(Integer id) {
-        return noticeRepo.findById(id).orElseThrow(()->new RuntimeException("Not Found"));
-    }
-
+    public Notice fetchById(Integer id) {return noticeRepo.findById(id).orElseThrow(()->new RuntimeException("Not Found"));}
     @Override
     public void deleteById(Integer id) {
     noticeRepo.deleteById(id);

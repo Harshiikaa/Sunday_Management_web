@@ -6,11 +6,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:href="@{~/css/admin.css}" rel="stylesheet" />
     <script th:src="@{~/javascript/content.js}"></script>
+    <link rel="stylesheet" th:href="@{~/css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{~/css/dashbody.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <title>Notice List</title>
 </head>
 <body>
-<div class="text-center">
-    <h1 class="display"><strong>Notice History</strong></h1>
+<nav class="sidebar close">
+    <header>
+        <div class="image-text">
+                <span class="image">
+                    <img th:src="@{~/images/logo.png}">
+                </span>
+            <div class="text logo-text">
+                <span class="name">Harshika Chaudhary</span>
+                <span class="profession">Manager</span>
+            </div>
+        </div>
+        <i class="bx bx-chevron-right toggle"></i>
+    </header>
+
+    <div class="menu-bar">
+        <div class="menu">
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a th:href="@{~/admin/dashboard}">
+                        <i class="bx bx-home-alt icon"></i>
+                        <span class="text nav-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a th:href="@{~/admin/addTasks}">
+                        <i class="bx bx-bar-chart-alt-2 icon"></i>
+                        <span class="text nav-text">Tasks</span>
+                    </a>
+                </li>
+                <!--                <a th:href="@{~/admin/addTasks}">-->
+
+                <li class="nav-link">
+                    <a th:href="@{~/admin/addNotice}">
+                        <i class="bx bx-bell icon"></i>
+                        <span class="text nav-text">Notices</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a th:href="@{~/admin/leaveSection}">
+                        <i class="bx bx-pie-chart-alt icon"></i>
+                        <span class="text nav-text">Leave</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a th:href="@{~/admin/employeeSection}">
+                        <i class="bx bxl-microsoft-teams icon"></i>
+                        <span class="text nav-text">Employees</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a th:href="@{~/admin/addDepartment}">
+                        <i class="bx bx-wallet icon"></i>
+                        <span class="text nav-text">Department</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="bottom-content">
+            <li>
+                <a th:href="@{~/logout}">
+                    <i class="bx bx-log-out icon"></i>
+                    <span class="text nav-text">Logout</span>
+                </a>
+            </li>
+        </div>
+    </div>
+</nav>
+
+
+<section class="home">
+<div class="text-center" style="position:relative;">
+    <a th:href="@{~/admin/addNotice}" style="background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  display: inline-block;
+  position: absolute;
+  left: 40px;
+  top: 5px;
+
+  font-size: 16px;">Back</a>
+
+    <h1 class="display" style="text-align: center" ><strong>Notice History</strong></h1>
 </div>
 
 <div class="Table">
@@ -33,12 +127,16 @@
                 <a th:href = "@{~/admin/editNotice/}+${notice.id}" class = "btn btn-primary" style="background-color: #04AA6D;  padding: 10px 20px;
     border: none;
     border-radius: 4px;
+        color: white;
+
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;" >Update</a></button>
+    transition: background-color 0.3s ease;" >Update</a>
                 <a th:href="@{~/admin/deleteNotice/}+${notice.id}" class = "btn btn-danger" style="background-color: red;  padding: 10px 20px;
     border: none;
     border-radius: 4px;
+        color: white;
+
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s ease;" >Delete</a>
@@ -47,5 +145,23 @@
         </tbody>
     </table>
 </div>
+</section>
+<script>
+    const body = document.querySelector('body'),
+        sidebar = body.querySelector('nav'),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
+
+    toggle.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+    })
+
+    searchBtn.addEventListener("click", () => {
+        sidebar.classList.remove("close");
+    })
+</script>
+<script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
 </body>
 </html>

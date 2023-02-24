@@ -1,10 +1,11 @@
 package com.system.sunday_management.controller;
 
 
-import com.system.sunday_management.model.Notice;
 import com.system.sunday_management.model.Task;
+import com.system.sunday_management.model.User;
 import com.system.sunday_management.pojo.TasksPojo;
 import com.system.sunday_management.service.TasksService;
+import com.system.sunday_management.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,11 +24,20 @@ import java.util.Map;
 @RequestMapping("/admin")
 public class TaskController {
     private final TasksService tasksService;
+    private final UserService userService;
 
     @GetMapping("/addTasks")
     public String addTasks(Model model){
-//        Task task = new Task();
         model.addAttribute("task",new TasksPojo());
+        List<User> users = userService.fetchAll();
+        model.addAttribute("userList", users.stream().map(user ->
+                        User.builder()
+                                .id(user.getId())
+                                .fullName(user.getFullName())
+                                .email(user.getEmail())
+                                .mobileNo(user.getMobileNo())
+                                .build()
+        ));
         return "/admin/admin_addTasks";
     }
 
@@ -70,6 +80,7 @@ public class TaskController {
                         .build()
         ));
         return "/admin/admin_taskList";
+
     }
     @GetMapping("/editTask/{id}")
     public String editTask(@PathVariable("id") Integer id, Model model) {

@@ -3,12 +3,14 @@
     margin-right: 10em;
 }
 .submit {
-    display: inline-block;
-    text-align: center;
+    display: flex;
+    justify-content: center;
     margin: 4px 2px;
 }
 
-input[type="Submit"] {
+input[type="submit"] {
+    display: block;
+    margin: 0 auto;
     text-align: center;
     background-color: #04AA6D;
     color: white;
@@ -21,11 +23,12 @@ input[type="Submit"] {
 }
 
 input[type="Submit"]:hover {
-    background-color: #3e8e41;
+    background-color: #04AA6D;
 }
 
 .history {
     text-align: center;
+
     color: var(--color-danger);
 }
 
@@ -49,7 +52,7 @@ input[type="Submit"]:hover {
 }
 
 .Table thead tr {
-    background-color: #009879;
+    background-color:#04AA6D;
     color: #ffffff;
     text-align: left;
 }
@@ -75,7 +78,7 @@ input[type="Submit"]:hover {
 
 .Table tbody tr.active-row {
     font-weight: bold;
-    color: #009879;
+    color: #04AA6D;
 }
 
 td .success {
@@ -122,34 +125,36 @@ select {
     border-radius: 6px;
 }
 
-select option:nth-child(1) {
-    color: red;
-    font-weight: 700;
-}
 
-select option:nth-child(2) {
-    color: green;
-    font-weight: 700;
-}
 
-select option:last-child {
-    color: blue;
-    font-weight: 700;
-}
+/*select option:nth-child(1) {*/
+/*    color: red;*/
+/*    font-weight: 700;*/
+/*}*/
 
-option:hover {
-    background-color: red;
-}
+/*select option:nth-child(2) {*/
+/*    color: green;*/
+/*    font-weight: 700;*/
+/*}*/
 
-select::before {
-    content: '';
-    background: blue;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
+/*select option:last-child {*/
+/*    color: blue;*/
+/*    font-weight: 700;*/
+/*}*/
+
+/*option:hover {*/
+/*    background-color: red;*/
+/*}*/
+
+/*select::before {*/
+/*    content: '';*/
+/*    background: blue;*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*}*/
 /*.btn btn-primary{*/
 /*    text-align: center;*/
 /*    background-color: #04AA6D;*/
